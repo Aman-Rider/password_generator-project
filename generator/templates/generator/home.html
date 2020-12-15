@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password generator</title>
-</head>
-<body>
+{% extends 'generator\base.html' %}
+
+{%block bodyblock %}
 <form action="{%url 'password'%}" method="POST">
     {% csrf_token %}
     <label for="length">Password Length</label>
@@ -43,8 +38,7 @@
     <label for="numbers">Numbers</label>
     <input type="checkbox" id='numbers' name="numbers">
     <br>
-    <input type="submit" value="Generate Password">
+    <input type="submit" value="Generate Password" class="btn btn-primary">
 </form>
-    
-</body>
-</html>
+
+{% endblock  %}

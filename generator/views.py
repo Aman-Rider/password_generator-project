@@ -3,7 +3,7 @@ from django.http import HttpResponse
 #
 import random
 # Create your views here.
-def hello(request):
+def home(request):
     return render(request, 'generator/home.html')
 
 def password(request):
@@ -15,7 +15,10 @@ def password(request):
         characters.extend(list('!@#$%^&*()'))
     if request.POST.get('numbers'):
         characters.extend(list('0123456789'))
-    length = int(request.POST.get('length'))
+    length = int(request.POST.get('length', 10))
     for x in range(length):
         thepassword += random.choice(characters)
     return render(request, 'generator/password.html', {"password":thepassword})
+
+def aboutus(request):
+    return render(request,'generator/aboutus.html')
