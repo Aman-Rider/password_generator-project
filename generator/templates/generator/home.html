@@ -6,15 +6,43 @@
     <title>Password generator</title>
 </head>
 <body>
-<form action="{%url 'password'%}">
-    <!-- {% csrf_token %} -->
-    <select name="length">
+<form action="{%url 'password'%}" method="POST">
+    {% csrf_token %}
+    <label for="length">Password Length</label>
+    <select name="length" id=length>
         <option value="6">6 Char long</option>
         <option value=7>7 Char long</option>
         <option value="8">8 Char long</option>
         <option value="9">9 Char long</option>
-        <option value="10">10 Char long</option>
+        <option value="10" selected="selected">10 Char long</option>
+        <option value="11">11 Char long</option>
+        <option value="12">12 Char long</option>
+        <option value="13">13 Char long</option>
+        <option value="14">14 Char long</option>
+        <option value="15">15 Char long</option>
+        <option value="16">16 Char long</option>
+        <option value="17">17 Char long</option>
+        <option value="18">18 Char long</option>
+        <option value="19">19 Char long</option>
+        <option value="20">20 Char long</option>
+        <option value="21">21 Char long</option>
+        <option value="22">22 Char long</option>
+        <option value="23">24 Char long</option>
+        <option value="24">24 Char long</option>
+        <option value="25">25 Char long</option>
+        <option value="26">26 Char long</option>
+        <option value="27">27 Char long</option>
     </select>
+    <br>
+    <label for="uppercase">UpperCase</label>
+    <input type="checkbox" id='uppercase' name="uppercase">
+    <br>
+    <label for="specialchar">Special Characters</label>
+    <input type="checkbox" id='specialchar' name="specialchar">
+    <br>
+    <label for="numbers">Numbers</label>
+    <input type="checkbox" id='numbers' name="numbers">
+    <br>
     <input type="submit" value="Generate Password">
 </form>
     
