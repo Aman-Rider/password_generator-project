@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-#
+from django.utils.crypto import get_random_string
 import random
 # Create your views here.
 def home(request):
@@ -16,8 +16,9 @@ def password(request):
     if request.POST.get('numbers'):
         characters.extend(list('0123456789'))
     length = int(request.POST.get('length', 10))
-    for x in range(length):
-        thepassword += random.choice(characters)
+    thepassword = get_random_string(length, characters)
+    # for x in range(length):
+    #     thepassword += random.choice(characters)
     return render(request, 'generator/password.html', {"password":thepassword})
 
 def aboutus(request):
